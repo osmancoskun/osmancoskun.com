@@ -1,10 +1,20 @@
-html,body{
-	margin: 0;
-	padding: 0;
-	font-family:  Cantarell,sans-serif;
-}
+
 :root{
 	--panel-color:#2E3436;
 	--selection-color:#729FCF;
 	--background-color:#D3D7CF;
+	--panel-height:30px;
+	
 }
+
+html{
+	height: 100%;
+	width: 100%;
+	font-family:Cantarell;
+	font-size: 14px;
+	font-weight: 600;
+}
+body{
+	margin: 0;
+}
+
