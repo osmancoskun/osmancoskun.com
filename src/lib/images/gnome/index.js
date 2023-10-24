@@ -12,6 +12,7 @@ export {default as NightLight} from "./night-light-symbolic.svg"
 export {default as SysLckScr} from "./system-lock-screen-symbolic.svg"
 export {default as SysShutIcon} from "./system-shutdown-symbolic.svg"
 export {default as ViewGridIcon} from "./view-app-grid-symbolic.svg"
+export {default as ScrShot} from "./screenshooter-symbolic.svg"
 
 
 
