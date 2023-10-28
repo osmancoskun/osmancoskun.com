@@ -1,39 +1,60 @@
+:root {
+	--panel-color: black;
+	--panel-el-color: #353535;
+	--panel-el-btn-color: #474747;
+	--panel-saparator-color: #474747;
+	--panel-el-text-color: #9A9A9A;
 
-:root{
-	--panel-color:black;
-	--panel-el-color:#353535;
-	--panel-el-btn-color:#474747;
-	
-	--panel-el-bg-color:#474747;
-	--panel-el-bg-color-bright:#595959;
+	--panel-el-bg-color: #474747;
+	--panel-el-bg-color-bright: #595959;
 
-	--panel-el-bg-color-hover:#4f4f4f;
-	--panel-el-bg-color-bright-hover:#616161;
-	
-	--panel-el-bg-color-active:#3584E4;
-	--panel-el-bg-color-active-bright:#4890E7;
-	--panel-el-bg-color-active-hover:#474747;
+	--panel-el-bg-color-hover: #4f4f4f;
+	--panel-el-bg-color-bright-hover: #616161;
+
+	--panel-el-bg-color-active: #3584E4;
+	--panel-el-bg-color-active-bright: #4890E7;
+	--panel-el-bg-color-active-hover: #474747;
 
 
-	--selection-color:#729FCF;
-	--background-color:#D3D7CF;
-	--panel-height:30px;
-	
+	--selection-color: #729FCF;
+	--background-color: #D3D7CF;
+	--panel-height: 30px;
+
 }
 
-html{
+html {
 	height: 100%;
 	width: 100%;
-	font-family:Cantarell;
+	font-family: Cantarell;
 	font-size: 14px;
 	font-weight: 600;
-	
-background-image: url(/src/lib/images/wallpaper/distopic1.png);
+
+	background-image: url(/src/lib/images/wallpaper/distopic1.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 
 }
-body{
+
+body {
 	margin: 0;
 }
 
+.hf {
+	height: 100%;
+}
+
+.wf {
+	width: 100%;
+}
+
+.flex {
+	display: flex;
+}
+
+.col {
+	flex-direction: column;
+}
+
+.row {
+	flex-direction: row;
+}

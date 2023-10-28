@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { PanStart, PanEnd } from "$lib/images/gnome";
 
     onMount(() => {
         setInterval(() => {
@@ -30,36 +31,41 @@
         return num < 10 ? `0${num}` : num;
     };
 
-    const toggleMenu = () => (show = !show);
+    const toggleMenu = () => {
+        console.log(show);
+        show = !show;
+    };
 
     const get_dates = () => {
-        let first_day = new Date(time.setDate(1)).getDate();
+        let first_day = new Date(
+            time.getFullYear(),
+            time.getMonth(),
+            1
+        ).getDay();
+        console.log("first day: ", first_day);
         let last_day = new Date(
             time.getFullYear(),
             time.getMonth() + 1,
             0
         ).getDate();
 
-        for (var i = 0; i < 42; i++) {
+        for (var i = 0; i < 35; i++) {
             let week_index = Math.floor(i / 7);
             month_days[week_index]
                 ? (month_days[week_index] = month_days[week_index])
                 : (month_days[week_index] = []);
             let week_day = i - week_index * 7;
-            console.log(week_day);
-            if (i >= first_day && i < last_day) {
-                let d = new Date().setDate(i);
-                console.log("date", d);
-                month_days[week_index][week_day] = new Date().setDate(i-1);
+            if (i >= first_day && i - first_day < last_day) {
+                let day = i - first_day + 1;
+                month_days[week_index][week_day] = new Date().setDate(i + 1);
             } else {
                 month_days[week_index][week_day] = undefined;
             }
         }
         month_days = month_days;
-        console.log(month_days);
     };
     const get_date = (date) => {
-        return date ? new Date(date).getDate() : "X";
+        return date ? new Date(date).getDate() : "";
     };
 </script>
 
@@ -69,66 +75,187 @@
     <span class="month">{month}</span>
     <span class="clock">{clock}</span>
     <div class="time-content" class:show>
-        <div class="col">
-            <div class="row">
-            {#each week_days as wd }
-                <div class="day-box">{wd}</div>
-            {/each}
-        </div>
-            {#each Array(6) as _, week_idx}
-                <div class="row">
-                    {#each Array(7) as __, day_idx}
-                    <div class="day-box">
-                        {#if month_days[week_idx]}
-                            {@const d = month_days[week_idx][day_idx]}
-                            {get_date(d)}
-                        {:else}
-                            X
-                        {/if}
-                    </div>
-                    {/each}
+        <div class="time-content-inner">
+            <div class="flex row gap-4 hf wf">
+                <div class="notification-box">
+                    <div class="notification">asd</div>
                 </div>
-            {/each}
+                <div class="saparator" />
+                <div class="date-box flex col">
+                    <span class="dayname">Thursday</span>
+                    <span class="full-dayname">October 26 2023</span>
+                    <div class="flex month-box">
+                        <img src={PanStart} alt="" />
+                        <span class="month-name">October</span>
+                        <img src={PanEnd} alt="" />
+                    </div>
+                    <div class="calendar">
+                        <div class="week-days">
+                            {#each week_days as day}
+                                <span class="day">
+                                    {day}
+                                </span>
+                            {/each}
+                        </div>
+                        {#each month_days as week}
+                            <div class="week-days">
+                                {#each week as day, index}
+                                    <span
+                                        class="day"
+                                        class:light-text={index != 0 &&
+                                            index != week.length - 1}
+                                    >
+                                        {get_date(day)}
+                                    </span>
+                                {/each}
+                            </div>
+                        {/each}
+                    </div>
+                    <div class="event-box flex col">
+                        <span class="light-text"> <b>Today</b></span>
+                        <span class="light-text">No Events</span>
+                    </div>
+                    <div class="world-clock-box">
+                        <span>Add world clocks...</span>
+                    </div>
+                    <div class="weather-clock-box">
+                        <span>Select weather location...</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <style>
-    .col {
-        display: flex;
-        flex-direction: column;
-    }
-    .row {
-        display: flex;
-        flex-direction: row;
+    .gap-4 {
+        gap: 14px;
     }
     .time {
         position: relative;
         display: inline-block;
         padding: 5px 10px;
-        cursor: pointer;
+        cursor: default;
     }
-    .day-box{
+    .calendar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        /*border: 1px solid red;*/
+    }
+    .week-days {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .day {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 20px;
-        width: 20px;
-        border: 1px solid lightblue;
+        width: 34px;
+        height: 34px;
         margin: 2px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
     }
+
     .time-content {
         display: none;
         position: absolute;
-        width: 740px;
-        height: 300px;
+        width: 736px;
+        /* height: 600px;*/
         top: 35px;
         left: -330px;
         background-color: var(--panel-el-color);
         z-index: 1;
         border-radius: 30px;
-        padding: 20px;
+        padding: 15px;
     }
+    .time-content-inner {
+        /*   border: 1px solid red; */
+        height: 100%;
+        width: 100%;
+    }
+
+    .notification {
+        width: 405px;
+        height: 100px;
+        border-radius: 15px;
+        /*  border: 1px solid lightgray;*/
+    }
+    .notification-box {
+        padding: 4px;
+        width: 100%;
+    }
+    .dayname {
+        margin-top: 7px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .full-dayname {
+        font-weight: bolder;
+        font-size: 18px;
+        margin-top: 5px;
+    }
+    .date-box {
+        color: var(--panel-el-text-color);
+    }
+    .month-box {
+        justify-content: space-between;
+        margin-top: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .month-box > .month-name {
+        color: #fff;
+    }
+    .event-box {
+        height: 72px;
+        width: 266px;
+        border-radius: 12px;
+        margin-top: 15px;
+        justify-content: space-evenly;
+        background: var(--panel-el-bg-color);
+    }
+    .event-box > span:nth-child(2) {
+        font-weight: 400;
+    }
+    .event-box > span {
+        padding-left: 10px;
+        font-size: 15px;
+    }
+    .world-clock-box,
+    .weather-clock-box {
+        height: 43px;
+        width: 266px;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        margin-top: 14px;
+        background: var(--panel-el-bg-color);
+    }
+    .world-clock-box > span {
+        padding-left: 10px;
+    }
+    .weather-clock-box > span {
+        padding-left: 10px;
+    }
+
+    .dark-text {
+        color: var(--panel-el-text-color);
+    }
+    .light-text {
+        color: #fff;
+    }
+    .saparator {
+        border: 1px solid var(--panel-saparator-color);
+    }
+
     .clock {
         width: 80px;
     }
