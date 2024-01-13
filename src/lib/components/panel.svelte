@@ -14,34 +14,49 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="panel-settings" on:click={toggleMenu}>
-    <img class="sys-icon" src={WirNetIcon} alt="" />
-    <img class="sys-icon" src={VolIcon} alt="" />
-    <img class="sys-icon" src={SysShutIcon} alt="" />
-    <div class="panel-settings-content" class:show>
-        <div class="sys-row">
-            <div class="sys-buttons">
-                <div class="sys-button">
-                    <img class="sys-img" src={ScrShot} alt="" />
+<div
+    class="flex py-1.5 px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    on:click={toggleMenu}
+>
+    <img class="my-auto mx-0.5" src={WirNetIcon} alt="" />
+    <img class="my-auto mx-0.5" src={VolIcon} alt="" />
+    <img class="my-auto mx-0.5" src={SysShutIcon} alt="" />
+    <div
+        class="absolute z-10 top-9 right-1.5 rounded-3xl p-5 w-[400px] bg-panel-el-color {show
+            ? 'block'
+            : 'hidden'}"
+    >
+        <div class="flex justify-between items-center gap-2.5">
+            <div class="flex justify-between items-center gap-2.5">
+                <div
+                    class="h-10 w-10 flex items-center justify-center rounded-full bg-panel-el-bg hover:bg-panel-el-bg-hover"
+                >
+                    <img src={ScrShot} alt="" />
                 </div>
-                <div class="sys-button">
-                    <img class="sys-img" src={EmbSys} alt="" />
+                <div
+                    class="h-10 w-10 flex items-center justify-center rounded-full bg-panel-el-bg hover:bg-panel-el-bg-hover"
+                >
+                    <img src={EmbSys} alt="" />
                 </div>
             </div>
-            <div class="sys-buttons">
-                <div class="sys-button">
-                    <img class="sys-img" src={SysLckScr} alt="" />
+            <div class="flex justify-between items-center gap-2.5">
+                <div
+                    class="h-10 w-10 flex items-center justify-center rounded-full bg-panel-el-bg hover:bg-panel-el-bg-hover"
+                >
+                    <img src={SysLckScr} alt="" />
                 </div>
-                <div class="sys-button">
-                    <img class="sys-img" src={SysShutIcon} alt="" />
+                <div
+                    class="h-10 w-10 flex items-center justify-center rounded-full bg-panel-el-bg hover:bg-panel-el-bg-hover"
+                >
+                    <img src={SysShutIcon} alt="" />
                 </div>
             </div>
         </div>
-        <div class="sys-brightness">
-            <img class="sys-img" src={VolIcon} alt="" />
+        <div class="flex items-center mt-5 gap-5">
+            <img class="h-8 w-8" src={VolIcon} alt="" />
             <input
                 type="range"
-                class="input-brightness"
+                class="w-full h-1 bg-panel-el-bg-color hover:bg-transparent"
                 on:click={(e) => {
                     e.stopPropagation();
                 }}
@@ -50,25 +65,48 @@
                     e.stopPropagation();
                 }}
             />
-            <img class="sys-img" src={GoNext} alt="" />
+            <img class="h-5 w-5" src={GoNext} alt="" />
         </div>
-        <div class="sys-settings">
-            <div class="sys-setting">
-                <div class="sys-setting-left">
+        <div class=" flex items-center font-medium gap-4 mt-2.5">
+            <div
+                class="flex items-center
+            font-medium gap-4 mt-2.5 h-12 w-full
+            rounded-3xl pl-5 bg-panel-el-bg-color
+            hover:bg-panel-el-bg-hover"
+            >
+                <div class="w-full flex items-center gap-3.5">
                     <img src={WirNetIcon} alt="" />
                     <span>Wired</span>
                 </div>
-                <div class="sys-setting-right">
-                    <img class="sys-img sys-setting-img" src={GoNext} alt="" />
+                <div
+                    class="bg-panel-el-bg-color-bright
+                    flex items-center justify-center
+                    rounded-tr-3xl rounded-br-3xl
+                    w-12 h-full border-l-panel-el-color
+                    hover:bg-panel-el-bg-color-bright-hover"
+                >
+                    <img class="mr-3.5 ml-2.5" src={GoNext} alt="" />
                 </div>
             </div>
-            <div class="sys-setting">
-                <div class="sys-setting-left">
+            <div
+                class="flex items-center
+                font-medium gap-4 mt-2.5 h-12 w-full
+                rounded-3xl pl-5 bg-panel-el-bg-color
+                hover:bg-panel-el-bg-hover"
+            >
+                <div class="w-full flex items-center gap-3.5">
                     <img src={WirNetIcon} alt="" />
                     <span>Wired</span>
                 </div>
-                <div class="sys-setting-right">
-                    <img class="sys-img sys-setting-img" src={GoNext} alt="" />
+                <div
+                    class="
+                    bg-panel-el-bg-color-bright
+                    flex items-center justify-center
+                    rounded-tr-3xl rounded-br-3xl
+                    w-12 h-full border-l-panel-el-color
+                    hover:bg-panel-el-bg-color-bright-hover"
+                >
+                    <img class="mr-3.5 ml-2.5" src={GoNext} alt="" />
                 </div>
             </div>
         </div>
@@ -77,126 +115,9 @@
 
 <style>
     span {
-        margin: 0;
-        padding: 0;
+        @apply m-0 p-0;
     }
     img {
-        height: 15px;
-        width: 15px;
-    }
-    .sys-img {
-        height: 16px;
-        width: 16px;
-    }
-    .sys-setting-img {
-        margin-right: 15px;
-        margin-left: 10px;
-    }
-
-    .sys-icon {
-        margin: auto 2px;
-    }
-    .panel-settings {
-        position: relative;
-        display: inline-block;
-        padding: 5px 10px;
-        cursor: pointer;
-    }
-
-    .panel-settings:hover {
-        background-color: rgb(36, 35, 35);
-        border-radius: 20px;
-    }
-    .panel-settings-content {
-        display: none;
-        position: absolute;
-        width: 400px;
-        /*height: 300px;*/
-        background-color: var(--panel-el-color);
-        z-index: 1;
-        top: 35px;
-        right: 5px;
-        border-radius: 30px;
-        padding: 20px;
-    }
-    .show {
-        display: block;
-    }
-    .sys-row,
-    .sys-buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .sys-brightness {
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-        gap: 20px;
-    }
-    .sys-brightness .sys-img {
-        height: 20px;
-        width: 20px;
-    }
-    .sys-buttons {
-        gap: 10px;
-    }
-    .sys-button {
-        height: 40px;
-        width: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--panel-el-bg-color);
-        border-radius: 50%;
-    }
-    .sys-button:hover {
-        background-color: var(--panel-el-bg-color-hover);
-    }
-    .input-brightness {
-        width: 100%;
-        height: 4px;
-        background-color: var(--panel-el-bg-color);
-    }
-    .input-brightness:hover {
-        background-color: unset;
-    }
-    .sys-settings,
-    .sys-setting {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        font-size: medium;
-    }
-    .sys-setting {
-        height: 50px;
-        width: 100%;
-        border-radius: 25px;
-        background-color: var(--panel-el-bg-color);
-        padding-left: 20px;
-    }
-    .sys-setting:hover {
-        background-color: var(--panel-el-bg-color-hover);
-    }
-    .sys-setting-left {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    .sys-setting-right {
-        background-color: var(--panel-el-bg-color-bright);
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 100%;
-        border-left: 1px solid var(--panel-el-color);
-    }
-    .sys-setting-right:hover {
-        background-color: var(--panel-el-bg-color-bright-hover);
+        @apply h-4 w-4;
     }
 </style>

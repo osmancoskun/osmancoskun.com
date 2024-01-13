@@ -1,0 +1,27 @@
+[
+    {
+        "artist": "A$AP Rocky",
+        "title": "Praise The Lord",
+        "path": "src/lib/musics/A$AP Rocky - Praise The Lord (Da Shine) ft Skepta.mp3"
+    },
+    {
+        "artist": "Dr. Alban",
+        "title": "No Coke",
+        "path": "src/lib/musics/Dr. Alban - No Coke (Hip Hop Reggae In A Dance Hall Style) [1990].mp3"
+    },
+    {
+        "artist": "JID",
+        "title": "151 Rum",
+        "path": "src/lib/musics/JID - 151 Rum.mp3"
+    },
+    {
+        "artist": "Snoop Dogg",
+        "title": "Sensual Seduction",
+        "path": "src/lib/musics/Snoop Dogg - Sensual Seduction.mp3"
+    },
+    {
+        "artist": "The Game, 50 Cent",
+        "title": "Hate It Or Love It",
+        "path": "src/lib/musics/The Game, 50 Cent - Hate It Or Love It.mp3"
+    }
+]

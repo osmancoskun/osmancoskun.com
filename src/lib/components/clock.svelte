@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import MusicPlayer from "$lib/components/musicplayer.svelte";
     import { PanStart, PanEnd } from "$lib/images/gnome";
 
     onMount(() => {
@@ -24,25 +25,30 @@
         time.toLocaleString("default", { month: "short" }) +
         " " +
         time.getDate();
-    $: clock = checkDigits(hour) + ":" + checkDigits(minute);
+    $: clock = hour + ":" + checkDigits(minute);
     $: get_dates();
 
     const checkDigits = (num) => {
         return num < 10 ? `0${num}` : num;
     };
 
+    const formattedDate = (date)=>{
+        return new Intl.DateTimeFormat('en-US',{
+            month:'long',
+            day:'numeric',
+            year:'numeric'
+            
+        }).format(new Date(date))
+    }
     const toggleMenu = () => {
-        console.log(show);
         show = !show;
     };
-
     const get_dates = () => {
         let first_day = new Date(
             time.getFullYear(),
             time.getMonth(),
             1
         ).getDay();
-        console.log("first day: ", first_day);
         let last_day = new Date(
             time.getFullYear(),
             time.getMonth() + 1,
@@ -62,7 +68,6 @@
                 month_days[week_index][week_day] = undefined;
             }
         }
-        month_days = month_days;
     };
     const get_date = (date) => {
         return date ? new Date(date).getDate() : "";
@@ -78,12 +83,14 @@
         <div class="time-content-inner">
             <div class="flex row gap-4 hf wf">
                 <div class="notification-box">
-                    <div class="notification">asd</div>
+                    <div>
+                        <MusicPlayer />
+                    </div>
                 </div>
                 <div class="saparator" />
                 <div class="date-box flex col">
                     <span class="dayname">Thursday</span>
-                    <span class="full-dayname">October 26 2023</span>
+                    <span class="full-dayname">{formattedDate(time)}</span>
                     <div class="flex month-box">
                         <img src={PanStart} alt="" />
                         <span class="month-name">October</span>
@@ -102,6 +109,8 @@
                                 {#each week as day, index}
                                     <span
                                         class="day"
+                                        class:day-active={get_date(day) ==
+                                            get_date(new Date())}
                                         class:light-text={index != 0 &&
                                             index != week.length - 1}
                                     >
@@ -161,15 +170,19 @@
         font-size: 12px;
         font-weight: bold;
     }
+    .day-active {
+        background-color: var(--panel-el-day-active);
+        color: white;
+    }
 
     .time-content {
         display: none;
         position: absolute;
-        width: 736px;
-        /* height: 600px;*/
+        width: auto;
         top: 35px;
-        left: -330px;
         background-color: var(--panel-el-color);
+        margin-left:auto;
+        margin-right:auto;
         z-index: 1;
         border-radius: 30px;
         padding: 15px;
@@ -180,11 +193,15 @@
         width: 100%;
     }
 
-    .notification {
-        width: 405px;
-        height: 100px;
+    .music {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 62px;
         border-radius: 15px;
-        /*  border: 1px solid lightgray;*/
+        background-color: var(--panel-el-bg-color);
+        padding: 19px;
+        gap: 14px;
     }
     .notification-box {
         padding: 4px;
@@ -246,9 +263,6 @@
         padding-left: 10px;
     }
 
-    .dark-text {
-        color: var(--panel-el-text-color);
-    }
     .light-text {
         color: #fff;
     }

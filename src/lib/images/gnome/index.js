@@ -15,6 +15,11 @@ export { default as ViewGridIcon } from "./view-app-grid-symbolic.svg"
 export { default as ScrShot } from "./screenshooter-symbolic.svg"
 export { default as PanStart } from "./pan-start-symbolic.svg"
 export { default as PanEnd } from "./pan-end-symbolic.svg"
+export { default as Music } from "./folder-music-symbolic.svg"
+export { default as Start } from "./media-playback-start-symbolic.svg"
+export { default as Pause } from "./media-playback-pause-symbolic.svg"
+export { default as SkipFwd } from "./media-skip-forward-symbolic.svg"
+export { default as SkipBwd } from "./media-skip-backward-symbolic.svg"
 
 
 

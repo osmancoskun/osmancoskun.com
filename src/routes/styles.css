@@ -1,4 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
+
 	--panel-color: black;
 	--panel-el-color: #353535;
 	--panel-el-btn-color: #474747;
@@ -14,6 +18,8 @@
 	--panel-el-bg-color-active: #3584E4;
 	--panel-el-bg-color-active-bright: #4890E7;
 	--panel-el-bg-color-active-hover: #474747;
+
+	--panel-el-day-active: #468de4;
 
 
 	--selection-color: #729FCF;
