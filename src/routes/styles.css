@@ -6,7 +6,7 @@
 	--panel-color: black;
 	--panel-el-color: #353535;
 	--panel-el-btn-color: #474747;
-	--panel-saparator-color: #474747;
+	--panel-separator-color: #474747;
 	--panel-el-text-color: #9A9A9A;
 
 	--panel-el-bg-color: #474747;
@@ -44,23 +44,6 @@ html {
 body {
 	margin: 0;
 }
-
-.hf {
-	height: 100%;
-}
-
-.wf {
-	width: 100%;
-}
-
-.flex {
-	display: flex;
-}
-
-.col {
-	flex-direction: column;
-}
-
-.row {
-	flex-direction: row;
+.show{
+	display: block;
 }

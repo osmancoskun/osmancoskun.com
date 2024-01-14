@@ -1,7 +1,6 @@
 <script>
     import Clock from "$lib/components/clock.svelte";
     import Panel from "$lib/components/panel.svelte";
-    
 </script>
 
 <div class="panel">
@@ -9,7 +8,7 @@
     <span>
         <Clock />
     </span>
-    <Panel/>
+    <Panel />
 </div>
 
 <style>

@@ -2,70 +2,70 @@
     import { browser } from "$app/environment";
     import { Music, Start, SkipFwd, SkipBwd, Pause } from "$lib/images/gnome";
     import Tracks from "$lib/musics/index.json";
-    import {onMount} from "svelte"
-    console.log(Tracks)
+    import { onMount } from "svelte";
 
-    let song = 0
-    $: player  = undefined
-    onMount(()=>{
-        if(browser){
-            player = new Audio(Tracks[song].path)
+    let song = 0;
+    $: player = undefined;
+    onMount(() => {
+        if (browser) {
+            player = new Audio(Tracks[song].path);
         }
-    })
+    });
     const play = () => {
-        if (player == undefined){
-            player = new Audio(Tracks[song].path)
+        if (player == undefined) {
+            player = new Audio(Tracks[song].path);
             player.play();
-
-        }else if(!player?.paused){
-            player.pause()    
-        }
-        else{
-            player.play()
+        } else if (!player?.paused) {
+            player.pause();
+        } else {
+            player.play();
         }
     };
-    const next = () =>{
-        if (song + 1 >= Tracks.length){
-            song = 0
+    const next = () => {
+        if (song + 1 >= Tracks.length) {
+            song = 0;
+        } else {
+            song += 1;
         }
-        else{
-            song+=1
+        player == undefined ? null : player.pause();
+        player = new Audio(Tracks[song].path);
+        play();
+    };
+
+    const prev = () => {
+        if (song - 1 <= 0) {
+            song = Tracks.length - 1;
+        } else {
+            song -= 1;
         }
-        player  == undefined ? null : player.pause()
-        player = new Audio(Tracks[song].path)
-        play()
-    }
-    
-    const prev = () =>{
-        if (song - 1 <= 0){
-            song = Tracks.length - 1; 
-        }
-        else{
-            song -= 1
-        }
-        player?.pause()
-        player = new Audio(Tracks[song].path)
-        play()
-    }
+        player?.pause();
+        player = new Audio(Tracks[song].path);
+        play();
+    };
 </script>
 
-<div class="music">
-    <div class="music-div">
-        <img class="music-img" src={Music} alt="" />
+<div
+    class="flex items-center w-full rounded-2xl p-5 gap-3.5 bg-panel-el-bg-color"
+>
+    <div
+        class="flex items-center justify-center h-16 w-16 rounded-lg bg-panel-el-color"
+    >
+        <img class="w-7 h-7" src={Music} alt="" />
     </div>
-    <div class="flex col player-song-info hf">
+    <div
+        class="flex flex-col h-full w-[180px] max-w-[180px] whitespace-nowrap overflow-hidden text-ellipsis break-words font-bold text-sm"
+    >
         <span class="player-artist-name">
             <b> {Tracks[song].artist} </b>
         </span>
-        <span class="player-song-name">
-            {Tracks[song].title}           
+        <span class="font-normal">
+            {Tracks[song].title}
         </span>
     </div>
-    <div class="music-player flex">
+    <div class="w-32 justify-between flex">
         <button
-
             on:click={(e) => {
-                prev()
+                prev();
                 e.stopPropagation();
                 e.preventDefault();
             }}
@@ -74,17 +74,16 @@
         </button>
         <button
             on:click={(e) => {
-                play()
+                play();
                 e.stopPropagation();
                 e.preventDefault();
             }}
         >
             <img src={player?.paused ? Start : Pause} alt="" />
-
         </button>
         <button
             on:click={(e) => {
-                next()
+                next();
                 e.stopPropagation();
                 e.preventDefault();
             }}
@@ -93,51 +92,3 @@
         </button>
     </div>
 </div>
-
-<style>
-    .music-div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 62px;
-        width: 62px;
-        border-radius: 8px;
-        background-color: var(--panel-el-color);
-    }
-    .music-img {
-        height: 28px;
-        width: 28px;
-    }
-    .music-player {
-        width: 128px;
-        justify-content: space-between;
-    }
-
-    .music-player > button {
-        background-color: transparent;
-        border: unset;
-    }
-
-    .player-song-info {
-        max-width: 180px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        overflow-wrap: break-word;
-        font-weight: bold;
-        font-size: 14px;
-    }
-    .player-song-name {
-        font-weight: 400;
-    }
-    .music {
-        display: flex;
-        align-items: center;
-        width: auto;
-        height: 62px;
-        border-radius: 15px;
-        background-color: var(--panel-el-bg-color);
-        padding: 19px;
-        gap: 14px;
-    }
-</style>
