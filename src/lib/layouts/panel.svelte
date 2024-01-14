@@ -3,30 +3,16 @@
     import Panel from "$lib/components/panel.svelte";
 </script>
 
-<div class="panel">
-    <span class="activity">Activities</span>
+<div
+    class="flex items-center justify-between w-full text-white h-[var(--panel-height)] bg-panel-color px-3.5"
+>
+    <span
+        class="flex py-0.5 px-2.5 text-sm cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    >
+        Activities
+    </span>
     <span>
         <Clock />
     </span>
     <Panel />
 </div>
-
-<style>
-    .panel {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: var(--panel-height);
-        width: 100%;
-        background: var(--panel-color);
-        color: white;
-    }
-    .activity {
-        margin-left: 15px;
-    }
-
-    span {
-        margin: 0;
-        padding: 0;
-    }
-</style>

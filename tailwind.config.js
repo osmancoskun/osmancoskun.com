@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
+        'panel-color':'var(--panel-color)',
         'panel-el-bg': 'var(--panel-el-bg-color)',
         'panel-el-color': 'var(--panel-el-color)',
         'panel-el-bg-color': 'var(--panel-el-bg-color)',

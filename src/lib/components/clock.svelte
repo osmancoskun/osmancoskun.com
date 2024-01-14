@@ -75,7 +75,10 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="py-1.5 px-2.5 cursor-pointer" on:click={toggleMenu}>
+<div
+    class="px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    on:click={toggleMenu}
+>
     <span class="mr-1.5">{month}</span>
     <span class="w-20">{clock}</span>
     <div
@@ -130,19 +133,25 @@
                         {/each}
                     </div>
                     <div
-                        class="flex flex-col h-[72px] w-[266px] justify-evenly rounded-xl mt-3.5 bg-panel-el-bg-color"
+                        class="flex flex-col p-4 w-[266px] justify-evenly rounded-xl mt-3.5 bg-panel-el-bg-color"
                     >
-                        <span class="text-white font-extrabold pl-2.5">
+                        <span class="text-white font-extrabold">
                             <b> Today </b>
                         </span>
-                        <span class="text-white font-normal pl-2.5">
-                            No Events
-                        </span>
+                        <span class="text-white font-normal"> No Events </span>
                     </div>
 
-                    <span class="pl-2.5">Add world clocks...</span>
+                    <span
+                        class="w-full p-4 justify-evenly rounded-xl mt-3.5 bg-panel-el-bg-color"
+                    >
+                        Add world clocks...
+                    </span>
 
-                    <span class="pl-2.5">Select weather location...</span>
+                    <span
+                        class="w-full p-4 justify-evenly rounded-xl mt-3.5 bg-panel-el-bg-color"
+                    >
+                        Select weather location...
+                    </span>
                 </div>
             </div>
         </div>
