@@ -21,7 +21,7 @@
 
 	--panel-el-day-active: #468de4;
 
-
+	--lockscreen-account-bg:#215D9C;
 	--selection-color: #729FCF;
 	--background-color: #D3D7CF;
 	--panel-height: 30px;
@@ -35,7 +35,7 @@ html {
 	font-size: 14px;
 	font-weight: 600;
 
-	background-image: url(/src/lib/images/wallpaper/distopic1.png);
+	background-image: url(/src/lib/images/wallpaper/landscape1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 

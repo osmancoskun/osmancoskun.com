@@ -2,6 +2,7 @@ export { default as BTDisabled } from "./bluetooth-disabled-symbolic.svg"
 export { default as BT } from "./bluetooth-symbolic.svg"
 export { default as EmbSys } from "./emblem-system-symbolic.svg"
 export { default as GoNext } from "./go-next-symbolic.svg"
+export {default as GoPrev} from "./go-previous-symbolic.svg"
 export { default as VolIcon } from "./multimedia-volume-control-symbolic.svg"
 export { default as VPNDisabled } from "./network-vpn-disabled-symbolic.svg"
 export { default as VPN } from "./network-vpn-symbolic.svg"
@@ -20,7 +21,7 @@ export { default as Start } from "./media-playback-start-symbolic.svg"
 export { default as Pause } from "./media-playback-pause-symbolic.svg"
 export { default as SkipFwd } from "./media-skip-forward-symbolic.svg"
 export { default as SkipBwd } from "./media-skip-backward-symbolic.svg"
-
+export {default as Avatar} from "./avatar-default.svg"
 
 
 

@@ -7,6 +7,7 @@ export default {
         'panel-color':'var(--panel-color)',
         'panel-el-bg': 'var(--panel-el-bg-color)',
         'panel-el-color': 'var(--panel-el-color)',
+        'lockscreen-account-bg':'var(--lockscreen-account-bg)',
         'panel-el-bg-color': 'var(--panel-el-bg-color)',
         'panel-el-bg-hover': 'var(--panel-el-bg-color-hover)',
         'panel-el-day-active': 'var(--panel-el-day-active)',
