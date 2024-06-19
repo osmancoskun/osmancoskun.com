@@ -76,7 +76,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-    class="px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    class="px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl z-30"
     on:click={toggleMenu}
 >
     <span class="mr-1.5">{month}</span>

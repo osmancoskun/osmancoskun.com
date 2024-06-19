@@ -1,6 +1,6 @@
 <script>
   import Clock from "$lib/components/clock.svelte";
-  import Panel from "$lib/components/panel.svelte";
+  import SystemActions from "$lib/components/system_actions.svelte";
   import { activiesOverview } from "$lib/store";
 </script>
 
@@ -11,12 +11,12 @@
     on:click={() => {
       $activiesOverview = !$activiesOverview;
     }}
-    class="flex py-0.5 px-2.5 text-sm cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    class="flex py-0.5 px-2.5 text-md cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
   >
     Activities
   </button>
   <span>
     <Clock />
   </span>
-  <Panel />
+  <SystemActions />
 </div>

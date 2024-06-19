@@ -15,14 +15,14 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-    class="flex py-1.5 px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl"
+    class="flex gap-2 py-1.5 px-2.5 cursor-pointer hover:bg-[#242323] hover:rounded-2xl z-10"
     on:click={toggleMenu}
 >
-    <img class="my-auto mx-0.5" src={WirNetIcon} alt="" />
-    <img class="my-auto mx-0.5" src={VolIcon} alt="" />
-    <img class="my-auto mx-0.5" src={SysShutIcon} alt="" />
+    <img class="my-auto mx-0.5 h-3 w-3" src={WirNetIcon} alt="" />
+    <img class="my-auto mx-0.5 h-3 w-3" src={VolIcon} alt="" />
+    <img class="my-auto mx-0.5 h-3 w-3" src={SysShutIcon} alt="" />
     <div
-        class="absolute z-10 top-9 right-1.5 rounded-3xl p-5 w-[400px] bg-panel-el-color {show
+        class="absolute top-9 right-1.5 rounded-3xl p-5 w-[400px] bg-panel-el-color {show
             ? 'block'
             : 'hidden'}"
     >
