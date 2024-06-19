@@ -22,3 +22,4 @@ export { default as Pause } from "./media-playback-pause-symbolic.svg";
 export { default as SkipFwd } from "./media-skip-forward-symbolic.svg";
 export { default as SkipBwd } from "./media-skip-backward-symbolic.svg";
 export { default as Avatar } from "./avatar-default.svg";
+export { default as FileManager } from "./folder-open.svg";

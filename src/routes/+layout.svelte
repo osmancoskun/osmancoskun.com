@@ -8,7 +8,7 @@
 <Panel />
 <div
   class="flex-grow transition-all {$activiesOverview
-    ? 'mx-40 my-10 mb-40 rounded-3xl'
+    ? 'mx-40 my-10 mb-52 rounded-3xl'
     : ''}"
 >
   <slot />
