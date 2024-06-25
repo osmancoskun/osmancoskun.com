@@ -1,4 +1,6 @@
 <script>
+  export let headerLabel = "";
+  export let contentLabel = "";
   let posX = 100;
   let posY = 100;
   let width = 300;
@@ -33,8 +35,8 @@
   style="top: {posY}px; left: {posX}px; width: {width}px; height: {height}px;"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="header" on:mousedown={onMouseDown}>Window Header</div>
-  <div class="content">Window Content</div>
+  <div class="header" on:mousedown={onMouseDown}>{headerLabel}</div>
+  <div class="content">{contentLabel}</div>
 </div>
 
 <style>
