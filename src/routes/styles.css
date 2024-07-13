@@ -2,50 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 :root {
+  --panel-color: black;
+  --panel-el-color: #353535;
+  --panel-el-btn-color: #474747;
+  --panel-separator-color: #474747;
+  --panel-el-text-color: #9a9a9a;
 
-	--panel-color: black;
-	--panel-el-color: #353535;
-	--panel-el-btn-color: #474747;
-	--panel-separator-color: #474747;
-	--panel-el-text-color: #9A9A9A;
+  --panel-el-bg-color: #474747;
+  --panel-el-bg-color-bright: #595959;
+  --panel-el-bg-color-hover: #4f4f4f;
+  --panel-el-bg-color-bright-hover: #616161;
 
-	--panel-el-bg-color: #474747;
-	--panel-el-bg-color-bright: #595959;
+  --panel-el-bg-color-active: #3584e4;
+  --panel-el-bg-color-active-bright: #4890e7;
+  --panel-el-bg-color-active-hover: #474747;
 
-	--panel-el-bg-color-hover: #4f4f4f;
-	--panel-el-bg-color-bright-hover: #616161;
+  --panel-el-day-active: #468de4;
 
-	--panel-el-bg-color-active: #3584E4;
-	--panel-el-bg-color-active-bright: #4890E7;
-	--panel-el-bg-color-active-hover: #474747;
-
-	--panel-el-day-active: #468de4;
-
-	--lockscreen-account-bg:#215D9C;
-	--selection-color: #729FCF;
-	--background-color: #D3D7CF;
-	--panel-height: 30px;
-
+  --lockscreen-account-bg: #215d9c;
+  --selection-color: #729fcf;
+  --background-color: #d3d7cf;
+  --panel-height: 30px;
+  --sidebar-bg-color: #303030;
 }
 
 html {
-	font-family: Cantarell;
-	font-size: 14px;
-	font-weight: 600;
+  font-family: Cantarell;
+  font-size: 14px;
+  font-weight: 600;
 }
 html,
 body {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	align-items: stretch;
-	justify-content: stretch;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: stretch;
+  justify-content: stretch;
 }
-.show{
-	display: block;
+.show {
+  display: block;
 }
 .transition-all {
-	transition: all 0.5s ease-in-out;
-  }
+  transition: all 0.5s ease-in-out;
+}

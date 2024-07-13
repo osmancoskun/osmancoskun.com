@@ -23,3 +23,7 @@ export { default as SkipFwd } from "./media-skip-forward-symbolic.svg";
 export { default as SkipBwd } from "./media-skip-backward-symbolic.svg";
 export { default as Avatar } from "./avatar-default.svg";
 export { default as FileManager } from "./folder-open.svg";
+export { default as WindowClose } from "./window-close-symbolic.svg";
+export { default as WindowMinimize } from "./window-minimize-symbolic.svg";
+export { default as WindowMaximize } from "./window-maximize-symbolic.svg";
+export { default as WindowRestore } from "./window-restore-symbolic.svg";

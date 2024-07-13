@@ -28,7 +28,7 @@
 </script>
 
 <div
-  class="{$activiesOverview ? 'z-1' : 'z-0'} 
+  class="{$activiesOverview ? ' z-1 ' : ' z-0 '} 
          px-5 h-32 fixed bottom-10 transition-all bg-slate-700 rounded-3xl left-1/2 -translate-x-1/2 w-auto"
 >
   <div class="flex items-center h-full">

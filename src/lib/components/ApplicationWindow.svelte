@@ -1,4 +1,10 @@
 <script>
+  import {
+    WindowRestore,
+    WindowMaximize,
+    WindowMinimize,
+    WindowClose,
+  } from "$g_images";
   export let headerLabel = "";
   export let contentLabel = "";
   let posX = 100;
@@ -35,20 +41,42 @@
   style="top: {posY}px; left: {posX}px; width: {width}px; height: {height}px;"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="header" on:mousedown={onMouseDown}>{headerLabel}</div>
+  <div
+    class="header flex items-center justify-between"
+    on:mousedown={onMouseDown}
+  >
+    <div class="">
+      <button>
+        <img src={WindowClose} alt="" />
+      </button>
+
+      <button>
+        <img src={WindowMinimize} alt="" />
+      </button>
+      <button>
+        <img src={WindowRestore} alt="" />
+      </button>
+    </div>
+    <span class="text-white">{headerLabel}</span>
+    <div />
+  </div>
   <div class="content">{contentLabel}</div>
 </div>
 
 <style>
+  button {
+    @apply rounded-full;
+  }
   .window {
     position: absolute;
     border: 1px solid #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background: #fff;
+    border-radius: 0.5em;
     overflow: hidden;
   }
   .header {
-    background: #ccc;
+    background: var(--sidebar-bg-color);
     padding: 5px;
     cursor: move;
   }
