@@ -17,7 +17,6 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Osman Coskun</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col max-w-3xl mx-auto px-6">

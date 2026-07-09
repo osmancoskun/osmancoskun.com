@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { experienceItems } from '$lib/experience/experience';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
+
+<Seo
+	title="Experience"
+	description="Professional experience across Linux systems development, GNOME ecosystem work, and fullstack web platforms."
+	path="/experience"
+/>
 
 <div class="space-y-6">
 	<header class="space-y-1">

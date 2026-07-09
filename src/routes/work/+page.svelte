@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { workItems } from '$lib/work/work';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
+
+<Seo
+	title="Work"
+	description="Freelance fullstack web development across fintech, automotive, and enterprise sectors."
+	path="/work"
+/>
 
 <div class="space-y-6">
 	<header class="space-y-1">

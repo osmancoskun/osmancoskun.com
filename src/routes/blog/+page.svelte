@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { filterPosts, getAllTags, type DateOrder } from '$lib/blog/filters';
 	import ContentFilters from '$lib/components/ContentFilters.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 
@@ -13,6 +14,12 @@
 	);
 	const allTags = $derived(getAllTags(data.posts));
 </script>
+
+<Seo
+	title="Blog"
+	description="Technical notes, guides, and how-tos on Linux, GNOME, and web development."
+	path="/blog"
+/>
 
 <div class="space-y-6">
 	<header class="space-y-1">

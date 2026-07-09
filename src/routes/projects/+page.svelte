@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { filterProjects, getAllTags, type DateOrder } from '$lib/projects/filters';
 	import ContentFilters from '$lib/components/ContentFilters.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import ExternalLink from '@lucide/svelte/icons/external-link';
 	import FolderGit2 from '@lucide/svelte/icons/folder-git-2';
 
@@ -15,6 +16,12 @@
 	);
 	const allTags = $derived(getAllTags(data.projects));
 </script>
+
+<Seo
+	title="Projects"
+	description="Open source work and personal projects across Linux, GNOME, and web development."
+	path="/projects"
+/>
 
 <div class="space-y-6">
 	<header class="space-y-1">

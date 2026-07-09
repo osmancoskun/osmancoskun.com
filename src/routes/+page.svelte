@@ -1,7 +1,13 @@
 <script lang="ts">
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	// Home page logic can be added here if needed in the future
+	import Seo from '$lib/components/Seo.svelte';
+	import { site } from '$lib/seo/site';
 </script>
+
+<Seo
+	title={site.name}
+	description="Software engineer at Pardus. Open-source contributor focused on Linux, GNOME, and web technologies."
+/>
 
 <div class="flex flex-col gap-12">
 	<section class="space-y-6">
