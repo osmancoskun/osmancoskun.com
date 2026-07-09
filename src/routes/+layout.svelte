@@ -9,7 +9,7 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/projects', label: 'Projects' },
-		{ href: '/freelance', label: 'Work' },
+		{ href: '/work', label: 'Work' },
 		{ href: '/experience', label: 'Experience' },
 		{ href: '/gallery', label: 'Gallery' }
 	];
