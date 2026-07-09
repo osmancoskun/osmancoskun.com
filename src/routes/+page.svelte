@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	// Home page logic can be added here if needed in the future
 </script>
 
@@ -44,11 +45,11 @@
 			</div>
 		</div>
 		<div class="pt-2">
-			<a href="/projects" class="inline-flex items-center text-accent hover:text-accent-hover font-medium transition-colors">
+			<a href="/projects" class="inline-flex items-center text-accent hover:text-accent-hover font-medium transition-colors group">
 				View all projects 
-				<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-				</svg>
+				<span class="ml-1 transition-transform group-hover:translate-x-1">
+					<ArrowRight size={16} />
+				</span>
 			</a>
 		</div>
 	</section>
