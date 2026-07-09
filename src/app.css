@@ -24,6 +24,11 @@
 		--card-padding: 1.5rem;
 		--page-max-width: 48rem;
 		--header-height: 4rem;
+
+		--code-bg: #f4f4f5;
+		--code-border: #d4d4d8;
+		--code-text: #18181b;
+		--code-inline-bg: #e4e4e7;
 	}
 
 	.dark {
@@ -33,6 +38,11 @@
 		--border: #262626;
 		--accent: #3b82f6;
 		--accent-hover: #60a5fa;
+
+		--code-bg: #1c1c1e;
+		--code-border: #3f3f46;
+		--code-text: #fafafa;
+		--code-inline-bg: #27272a;
 	}
 
 	html {
@@ -46,5 +56,78 @@
 		transition:
 			background-color 0.2s ease,
 			color 0.2s ease;
+	}
+}
+
+@layer components {
+	.prose pre {
+		background-color: var(--code-bg);
+		border: 1px solid var(--code-border);
+		border-radius: 0.5rem;
+		padding: 1rem 1.25rem;
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+		overflow-x: auto;
+		box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+	}
+
+	.dark .prose pre {
+		box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+	}
+
+	.prose pre code {
+		background-color: transparent;
+		color: var(--code-text);
+		font-size: 0.875rem;
+		line-height: 1.6;
+		font-weight: 400;
+		padding: 0;
+		border-radius: 0;
+	}
+
+	.prose :not(pre) > code {
+		background-color: var(--code-inline-bg);
+		color: var(--code-text);
+		padding: 0.15em 0.4em;
+		border-radius: 0.25rem;
+		font-size: 0.875em;
+		font-weight: 500;
+		border: 1px solid var(--code-border);
+	}
+
+	.prose pre code::before,
+	.prose pre code::after,
+	.prose :not(pre) > code::before,
+	.prose :not(pre) > code::after {
+		content: none;
+	}
+
+	.prose pre.shiki {
+		background-color: var(--code-bg) !important;
+		padding: 1rem 1.25rem;
+	}
+
+	.prose pre.shiki code {
+		background-color: transparent !important;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	}
+
+	/* Shiki dual themes: site uses .dark class, not prefers-color-scheme */
+	.prose pre.shiki,
+	.prose pre.shiki span {
+		color: var(--shiki-light, var(--code-text));
+		background-color: transparent;
+		font-style: var(--shiki-light-font-style);
+		font-weight: var(--shiki-light-font-weight);
+		text-decoration: var(--shiki-light-text-decoration);
+	}
+
+	.dark .prose pre.shiki,
+	.dark .prose pre.shiki span {
+		color: var(--shiki-dark, var(--code-text));
+		background-color: transparent;
+		font-style: var(--shiki-dark-font-style);
+		font-weight: var(--shiki-dark-font-weight);
+		text-decoration: var(--shiki-dark-text-decoration);
 	}
 }

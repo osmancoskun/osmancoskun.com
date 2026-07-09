@@ -8,6 +8,6 @@
 	<Seo {...data.seo} />
 {/if}
 
-<article class="prose dark:prose-invert max-w-none">
+<article class="prose blog-prose dark:prose-invert max-w-none">
 	{@render children()}
 </article>
