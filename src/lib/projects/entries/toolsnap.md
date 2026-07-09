@@ -6,6 +6,9 @@ date: "2026-06-15"
 tags:
   - personal
   - web
+  - frontend
   - tools
+  - utilities
+  - javascript
 url: https://toolsnap.dev
 ---

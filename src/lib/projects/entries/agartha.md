@@ -6,5 +6,9 @@ date: "2026-04-01"
 tags:
   - personal
   - web
+  - frontend
+  - landing-page
+  - hospitality
+  - design
 url: https://agartha.pub
 ---
