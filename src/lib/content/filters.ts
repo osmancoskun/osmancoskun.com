@@ -3,6 +3,7 @@ export type DateOrder = 'asc' | 'desc';
 export type FilterableItem = {
 	title?: string;
 	description?: string;
+	details?: string;
 	date?: string;
 	tags?: string[];
 };
@@ -16,9 +17,15 @@ export function itemMatchesQuery(item: FilterableItem, query: string): boolean {
 	const normalized = query.toLowerCase();
 	const title = item.title?.toLowerCase() ?? '';
 	const description = item.description?.toLowerCase() ?? '';
+	const details = item.details?.toLowerCase() ?? '';
 	const tagMatch = item.tags?.some((tag) => tag.toLowerCase().includes(normalized)) ?? false;
 
-	return title.includes(normalized) || description.includes(normalized) || tagMatch;
+	return (
+		title.includes(normalized) ||
+		description.includes(normalized) ||
+		details.includes(normalized) ||
+		tagMatch
+	);
 }
 
 export function itemMatchesQueries(item: FilterableItem, queries: string[]): boolean {

@@ -9,7 +9,10 @@ export function getProjects(
 		.map(([path, metadata]) => {
 			if (!metadata) return null;
 
-			const slug = path.split('/').at(-2);
+			const file = path.split('/').at(-1);
+			if (!file) return null;
+
+			const slug = file.replace(/\+page\.md$/, '').replace(/\.md$/, '');
 			if (!slug || slug.startsWith('(')) return null;
 
 			return { slug, ...metadata };

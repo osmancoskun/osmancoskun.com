@@ -44,16 +44,28 @@
 							<article class="rounded-lg border border-border p-4">
 								<div class="flex items-start justify-between gap-4">
 									<div class="min-w-0 flex-1 space-y-2">
-										<a
-											href="/projects/{project.slug}"
-											class="text-sm font-medium hover:text-accent transition-colors"
-										>
-											{project.title}
-										</a>
+										{#if project.url}
+											<a
+												href={project.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="text-sm font-medium hover:text-accent transition-colors"
+											>
+												{project.title}
+											</a>
+										{:else}
+											<h2 class="text-sm font-medium">{project.title}</h2>
+										{/if}
 
 										{#if project.description}
-											<p class="text-xs text-text-muted leading-relaxed line-clamp-2">
+											<p class="text-xs text-text leading-relaxed">
 												{project.description}
+											</p>
+										{/if}
+
+										{#if project.details}
+											<p class="text-xs text-text-muted leading-relaxed">
+												{project.details}
 											</p>
 										{/if}
 
