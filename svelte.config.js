@@ -3,26 +3,49 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 
+const shikiLangs = [
+	'javascript',
+	'typescript',
+	'svelte',
+	'html',
+	'css',
+	'bash',
+	'json',
+	'markdown',
+	'ini',
+	'toml'
+];
+
+/** @type {ReturnType<typeof createHighlighter> | null} */
+let highlighterPromise = null;
+
+function getHighlighter() {
+	highlighterPromise ??= createHighlighter({
+		themes: ['github-dark', 'github-light'],
+		langs: shikiLangs
+	});
+	return highlighterPromise;
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await createHighlighter({
-				themes: ['github-dark', 'github-light'],
-				langs: ['javascript', 'typescript', 'svelte', 'html', 'css', 'bash', 'json', 'markdown', 'ini', 'toml']
-			});
-			
-			const html = escapeSvelte(highlighter.codeToHtml(code, { 
-				lang, 
-				themes: {
-					light: 'github-light',
-					dark: 'github-dark'
-				},
-				defaultColor: false,
-				rootStyle: false
-			}));
-			
+			const highlighter = await getHighlighter();
+
+			const html = escapeSvelte(
+				highlighter.codeToHtml(code, {
+					lang,
+					themes: {
+						light: 'github-light',
+						dark: 'github-dark'
+					},
+					defaultColor: false,
+					rootStyle: false
+				})
+			);
+
 			return `{@html \`${html}\` }`;
 		}
 	}
