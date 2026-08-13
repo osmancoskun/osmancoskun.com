@@ -59,6 +59,12 @@
 					— notes and guides when I bother writing them down.
 				</a>
 			</li>
+			<li>
+				<a href="/gallery" class="block text-text-muted hover:text-accent transition-colors">
+					<span class="text-text">Gallery</span>
+					— photos from trips and elsewhere.
+				</a>
+			</li>
 		</ul>
 	</section>
 </div>
