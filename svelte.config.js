@@ -10,7 +10,7 @@ const mdsvexOptions = {
 		highlighter: async (code, lang = 'text') => {
 			const highlighter = await createHighlighter({
 				themes: ['github-dark', 'github-light'],
-				langs: ['javascript', 'typescript', 'svelte', 'html', 'css', 'bash', 'json', 'markdown', 'ini']
+				langs: ['javascript', 'typescript', 'svelte', 'html', 'css', 'bash', 'json', 'markdown', 'ini', 'toml']
 			});
 			
 			const html = escapeSvelte(highlighter.codeToHtml(code, { 
