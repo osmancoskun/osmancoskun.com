@@ -1,0 +1,25 @@
+{
+	"slug": "2025-08-taurus-mountains",
+	"title": "August 2025 — Turkey",
+	"country": "Turkey",
+	"place": "Taurus Mountains",
+	"month": "2025-08",
+	"photos": [
+		{
+			"id": "001",
+			"takenAt": "2025-08-16T07:27:35+03:00",
+			"place": "Erdemli - Ayrancı Yolu",
+			"thumb": "/gallery/2025-08-taurus-mountains/thumbs/001.jpg",
+			"full": "/gallery/2025-08-taurus-mountains/full/001.jpg",
+			"alt": "Erdemli - Ayrancı Yolu, 16 August 2025"
+		},
+		{
+			"id": "002",
+			"takenAt": "2025-08-16T07:35:24+03:00",
+			"place": "Erdemli - Ayrancı Yolu",
+			"thumb": "/gallery/2025-08-taurus-mountains/thumbs/002.jpg",
+			"full": "/gallery/2025-08-taurus-mountains/full/002.jpg",
+			"alt": "Erdemli - Ayrancı Yolu, 16 August 2025"
+		}
+	]
+}
