@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.jpg';
 	import NavLinks from '$lib/components/NavLinks.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import { site } from '$lib/seo/site';
 
 	let { children } = $props();
 
@@ -24,6 +25,12 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} type="image/jpeg" />
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title="{site.name} RSS"
+		href="/rss.xml"
+	/>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col max-w-3xl mx-auto px-6">
