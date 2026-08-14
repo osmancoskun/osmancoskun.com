@@ -57,6 +57,23 @@
 			background-color 0.2s ease,
 			color 0.2s ease;
 	}
+
+	a:not([class*='hover:']) {
+		color: inherit;
+	}
+
+	.prose a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+		text-underline-offset: 2px;
+		font-weight: 500;
+	}
+
+	.prose a:hover {
+		color: var(--accent-hover);
+		text-decoration-color: var(--accent-hover);
+	}
 }
 
 @layer components {

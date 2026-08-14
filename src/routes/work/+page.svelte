@@ -23,12 +23,12 @@
 			<li>
 				<article class="rounded-lg border border-border p-4 space-y-3">
 					<div class="space-y-1">
-						<h2 class="text-sm font-medium">{item.title}</h2>
-						<p class="text-xs text-text-muted leading-relaxed">{item.description}</p>
+						<h2 class="text-base font-medium">{item.title}</h2>
+						<p class="text-sm text-text-muted leading-relaxed">{item.description}</p>
 					</div>
 
 					<ul
-						class="list-disc list-outside space-y-1.5 pl-5 text-xs text-text-muted leading-relaxed marker:text-text-muted"
+						class="list-disc list-outside space-y-1.5 pl-5 text-sm text-text-muted leading-relaxed marker:text-text-muted"
 					>
 						{#each item.highlights as highlight (highlight)}
 							<li>{highlight}</li>
@@ -39,7 +39,7 @@
 						<ul class="list-none flex flex-wrap gap-1.5 p-0 m-0">
 							{#each item.tags as tag (tag)}
 								<li
-									class="text-[11px] px-1.5 py-0.5 rounded border border-border/70 text-text-muted"
+									class="rounded border border-border/70 px-1.5 py-0.5 text-xs text-text-muted"
 								>
 									{tag}
 								</li>

@@ -24,14 +24,14 @@
 				<article class="rounded-lg border border-border p-4 space-y-3">
 					<div class="flex items-start justify-between gap-4">
 						<div class="min-w-0 space-y-1">
-							<h2 class="text-sm font-medium">{item.role}</h2>
-							<p class="text-xs text-text-muted">
+							<h2 class="text-base font-medium">{item.role}</h2>
+							<p class="text-sm text-text-muted">
 								{#if item.companyUrl}
 									<a
 										href={item.companyUrl}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="hover:text-accent transition-colors"
+										class="text-accent underline decoration-accent/40 underline-offset-2 transition-colors hover:text-accent-hover"
 									>
 										{item.company}
 									</a>
@@ -42,7 +42,7 @@
 							</p>
 						</div>
 
-						<div class="flex shrink-0 flex-col items-end gap-0.5 text-right text-xs text-text-muted">
+						<div class="flex shrink-0 flex-col items-end gap-0.5 text-right text-sm text-text-muted">
 							{#if item.schedule}
 								<span>{item.schedule}</span>
 							{/if}
@@ -51,7 +51,7 @@
 					</div>
 
 					<ul
-						class="list-disc list-outside space-y-1.5 pl-5 text-xs text-text-muted leading-relaxed marker:text-text-muted"
+						class="list-disc list-outside space-y-1.5 pl-5 text-sm text-text-muted leading-relaxed marker:text-text-muted"
 					>
 						{#each item.highlights as highlight (highlight)}
 							<li>{highlight}</li>
@@ -62,7 +62,7 @@
 						<ul class="list-none flex flex-wrap gap-1.5 p-0 m-0">
 							{#each item.tags as tag (tag)}
 								<li
-									class="text-[11px] px-1.5 py-0.5 rounded border border-border/70 text-text-muted"
+									class="rounded border border-border/70 px-1.5 py-0.5 text-xs text-text-muted"
 								>
 									{tag}
 								</li>
