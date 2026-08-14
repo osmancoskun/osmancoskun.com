@@ -1,18 +1,7 @@
 <script lang="ts">
-	import { filterPosts, getAllTags, type DateOrder } from '$lib/blog/filters';
-	import ContentFilters from '$lib/components/ContentFilters.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
-
-	let selectedQueries = $state<string[]>([]);
-	let searchInput = $state('');
-	let dateOrder = $state<DateOrder>('desc');
-
-	const filteredPosts = $derived(
-		filterPosts(data.posts, { queries: selectedQueries, dateOrder })
-	);
-	const allTags = $derived(getAllTags(data.posts));
 </script>
 
 <Seo
@@ -30,52 +19,42 @@
 	{#if data.posts.length === 0}
 		<p class="text-sm text-text-muted">No posts yet.</p>
 	{:else}
-		<ContentFilters {allTags} bind:selectedQueries bind:searchInput bind:dateOrder />
-
-		<div class="min-h-[24rem]">
-			{#if filteredPosts.length === 0}
-				<p class="text-sm text-text-muted">No posts match your filters.</p>
-			{:else}
-				<ul class="list-none space-y-3 p-0 m-0">
-					{#each filteredPosts as post (post.slug)}
-						<li>
-							<a
-								href="/blog/{post.slug}"
-								class="group block rounded-lg border border-border p-4 hover:border-accent/40 transition-colors"
-							>
-								<div class="flex items-start justify-between gap-3">
-									<h2 class="text-sm font-medium group-hover:text-accent transition-colors">
-										{post.title}
-									</h2>
-									<time datetime={post.date} class="shrink-0 text-xs text-text-muted">
-										{new Date(post.date).toLocaleDateString('en-US', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric'
-										})}
-									</time>
-								</div>
-								{#if post.description}
-									<p class="mt-2 text-xs text-text-muted leading-relaxed line-clamp-2">
-										{post.description}
-									</p>
-								{/if}
-								{#if post.tags?.length}
-									<ul class="list-none mt-2 flex flex-wrap gap-1.5 p-0 m-0">
-										{#each post.tags as tag (tag)}
-											<li
-												class="text-[11px] px-1.5 py-0.5 rounded border border-border/70 text-text-muted"
-											>
-												{tag}
-											</li>
-										{/each}
-									</ul>
-								{/if}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			{/if}
-		</div>
+		<ul class="list-none divide-y divide-border/50 p-0 m-0">
+			{#each data.posts as post (post.slug)}
+				<li>
+					<a
+						href="/blog/{post.slug}"
+						class="group -mx-3 flex flex-col gap-2 rounded-md px-3 py-4 transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02] sm:flex-row sm:gap-6"
+					>
+						<time datetime={post.date} class="shrink-0 text-sm text-text-muted sm:w-28">
+							{new Date(post.date).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric'
+							})}
+						</time>
+						<div class="min-w-0 flex-1 space-y-1.5">
+							<h2 class="text-base font-medium transition-colors group-hover:text-accent">
+								{post.title}
+							</h2>
+							{#if post.description}
+								<p class="text-sm leading-relaxed text-text-muted">{post.description}</p>
+							{/if}
+							{#if post.tags?.length}
+								<ul class="list-none flex flex-wrap gap-1.5 p-0 m-0">
+									{#each post.tags as tag (tag)}
+										<li
+											class="rounded border border-border/70 px-1.5 py-0.5 text-xs text-text-muted"
+										>
+											{tag}
+										</li>
+									{/each}
+								</ul>
+							{/if}
+						</div>
+					</a>
+				</li>
+			{/each}
+		</ul>
 	{/if}
 </div>
