@@ -16,6 +16,11 @@ export const load: LayoutLoad = ({ url }) => {
 	if (!post) return {};
 
 	return {
+		post: {
+			title: post.title,
+			date: post.date,
+			tags: post.tags ?? []
+		},
 		seo: {
 			title: post.title,
 			description: post.description ?? site.defaultDescription,
