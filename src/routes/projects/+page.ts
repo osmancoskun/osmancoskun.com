@@ -1,15 +1,6 @@
-import { getProjects } from '$lib/projects/items';
-import type { ProjectMeta } from '$lib/projects/types';
+import { loadProjects } from '$lib/projects/load';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = () => {
-	const modules = import.meta.glob<Omit<ProjectMeta, 'slug'>>(
-		'../../lib/projects/entries/*.md',
-		{
-		eager: true,
-		import: 'metadata'
-	});
-	const projects = getProjects(modules);
-
-	return { projects };
+	return { projects: loadProjects() };
 };
