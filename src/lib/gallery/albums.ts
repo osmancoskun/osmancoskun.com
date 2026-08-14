@@ -62,11 +62,8 @@ export function formatAlbumDateRange(album: GalleryAlbum): string | undefined {
 		start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth();
 
 	if (sameMonth) {
-		return `${start.getDate()}–${end.toLocaleDateString('en-US', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric'
-		})}`;
+		const month = start.toLocaleDateString('en-US', { month: 'long' });
+		return `${month} ${start.getDate()}–${end.getDate()}, ${start.getFullYear()}`;
 	}
 
 	return `${start.toLocaleDateString('en-US', {
