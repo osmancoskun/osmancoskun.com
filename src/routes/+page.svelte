@@ -30,6 +30,57 @@
 		</div>
 	</div>
 
+	<section class="space-y-3">
+		<h2 class="text-sm font-medium text-text">Around here</h2>
+		<ul class="list-none space-y-2 p-0 m-0 text-sm leading-relaxed">
+			<li>
+				<a
+					href="/projects"
+					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+				>
+					<span class="font-medium text-text">Projects</span>
+					— open-source and personal work, mostly Linux and GNOME.
+				</a>
+			</li>
+			<li>
+				<a
+					href="/work"
+					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+				>
+					<span class="font-medium text-text">Work</span>
+					— freelance builds across fintech, automotive, and enterprise.
+				</a>
+			</li>
+			<li>
+				<a
+					href="/experience"
+					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+				>
+					<span class="font-medium text-text">Experience</span>
+					— paid employment, more or less in order.
+				</a>
+			</li>
+			<li>
+				<a
+					href="/blog"
+					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+				>
+					<span class="font-medium text-text">Blog</span>
+					— notes and guides when I bother writing them down.
+				</a>
+			</li>
+			<li>
+				<a
+					href="/gallery"
+					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
+				>
+					<span class="font-medium text-text">Gallery</span>
+					— photos from trips and elsewhere.
+				</a>
+			</li>
+		</ul>
+	</section>
+
 	{#if data.posts.length > 0}
 		<section class="space-y-3">
 			<div class="flex items-baseline justify-between gap-4">
@@ -115,55 +166,4 @@
 			</ul>
 		</section>
 	{/if}
-
-	<section class="space-y-3">
-		<h2 class="text-sm font-medium text-text">Around here</h2>
-		<ul class="list-none space-y-2 p-0 m-0 text-sm leading-relaxed">
-			<li>
-				<a
-					href="/projects"
-					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
-				>
-					<span class="font-medium text-text">Projects</span>
-					— open-source and personal work, mostly Linux and GNOME.
-				</a>
-			</li>
-			<li>
-				<a
-					href="/work"
-					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
-				>
-					<span class="font-medium text-text">Work</span>
-					— freelance builds across fintech, automotive, and enterprise.
-				</a>
-			</li>
-			<li>
-				<a
-					href="/experience"
-					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
-				>
-					<span class="font-medium text-text">Experience</span>
-					— paid employment, more or less in order.
-				</a>
-			</li>
-			<li>
-				<a
-					href="/blog"
-					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
-				>
-					<span class="font-medium text-text">Blog</span>
-					— notes and guides when I bother writing them down.
-				</a>
-			</li>
-			<li>
-				<a
-					href="/gallery"
-					class="block text-text-muted underline decoration-border underline-offset-2 transition-colors hover:text-accent hover:decoration-accent/40"
-				>
-					<span class="font-medium text-text">Gallery</span>
-					— photos from trips and elsewhere.
-				</a>
-			</li>
-		</ul>
-	</section>
 </div>
